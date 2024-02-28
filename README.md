@@ -18,7 +18,7 @@ Checking for 1 is incorrect because the mask itself is never 1 except in the fir
 Due to how signed integers are represented (usually in 2's complement form), this causes negative signed values to be viewed as large unisgned values.
 ```
     //  Correct
-	unsigned int views;
+    unsigned int views;
 ```
 ```
     //  Incorrect
