@@ -1,3 +1,4 @@
+
 /**
  * A data type storing information about a movie.
 */
@@ -27,12 +28,12 @@ void radix_clone(Movie src[], Movie dst[], int n) {
 
     //   Iterate through each bit, starting from the least significant digit.
     for(d = 0; d <= 31; d += 1) {
-        count0 = 0u;
-        count1 = 0u;
-        mask = 1u << d;
+        count0 = 0;
+        count1 = 0;
+        mask = 1 << d;
         //  Assigns elements to a bucket based on the digit (0 or 1).
         for (i = 0; i < n; i += 1) {
-            if ((dst[i].views & mask) == 0u) {
+            if ((dst[i].views & mask) == 0) {
                 bucket0[count0] = dst[i];
                 count0 = count0 + 1;
             }
