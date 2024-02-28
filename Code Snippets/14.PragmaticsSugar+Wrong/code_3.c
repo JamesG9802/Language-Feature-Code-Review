@@ -2,8 +2,8 @@
  * A data type storing information about a movie.
 */
 typedef struct Movie {
-	name;
-	views;
+	char name[256];
+	unsigned int views;
 } Movie;
 
 /**
@@ -11,13 +11,13 @@ typedef struct Movie {
  * Uses the least significant digit radix sort algorithm and sorts based on Movie views.
  * It is assumed that src and dst are valid arrays of the same size and that n <= 100.
  * It is assumed that integers are 32 bit numbers.
- * It is assumed that Movie views are unsigned integers.
  * @param src the source array of Movies. Untouched by the sorting.
  * @param dst the destination array of Movies. Will contain the sorted data.
  * @param n the number of elements in src.
 */
-void radix_clone(src, dst, n) {
-    bucket0, bucket1, count0, count1, mask, i, d;
+void radix_clone(Movie src[], Movie dst[], unsigned int n) {
+    let bucket0[100], bucket1[100];
+    let count0 = 0u, count1 = 0u, mask = 0u, i = 0u, d = 0u;
 
     //  Copy src to dst.
     for(i = 0; i < n; i += 1) {
@@ -25,20 +25,15 @@ void radix_clone(src, dst, n) {
     }
 
     //   Iterate through each bit, starting from the least significant digit.
-    for(d = 0; d <= 31; d += 1) {
+    for(i = 0; i <= 31; i += 1) {
         count0 = 0;
         count1 = 0;
-        mask = 1 << d;
+        mask = 1 << i;
         //  Assigns elements to a bucket based on the digit (0 or 1).
-        for (i = 0; i < n; i += 1) {
-            if ((dst[i].views & mask) == 0) {
-                bucket0[count0] = dst[i];
-                count0 = count0 + 1;
-            }
-            else {
-                bucket1[count1] = dst[i];
-                count1 = count1 + 1;
-            }
+        for (d = 0; d < n; d += 1) {
+            dst[d].views & mask == 0 ?
+                (bucket0[count0] = dst[d], count0 = count0 + 1) :
+                (bucket1[count1] = dst[d], count1 = count1 + 1);
         }
         //  Replace dst with bucket contents.
         for (i = 0; i < count0; i += 1) {

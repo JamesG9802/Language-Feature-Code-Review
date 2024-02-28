@@ -31,13 +31,13 @@ void radix_clone(src, dst, n) {
         mask = 1 << d;
         //  Assigns elements to a bucket based on the digit (0 or 1).
         for (i = 0; i < n; i += 1) {
-            if ((dst[i].views & mask) == 0) {
-                bucket0[count0] = dst[i];
-                count0 = count0 + 1;
-            }
-            else {
+            if ((dst[i].views & mask) == 1) {
                 bucket1[count1] = dst[i];
                 count1 = count1 + 1;
+            }
+            else {
+                bucket0[count0] = dst[i];
+                count0 = count0 + 1;
             }
         }
         //  Replace dst with bucket contents.

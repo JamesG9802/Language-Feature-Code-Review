@@ -11,7 +11,7 @@ typedef struct Movie {
  * Uses the least significant digit radix sort algorithm and sorts based on Movie views.
  * It is assumed that src and dst are valid arrays of the same size and that n <= 100.
  * It is assumed that integers are 32 bit numbers.
- * It is assumed that Movie views are unsigned integers.
+ * It is assumed that Movie views are signed integers.
  * @param src the source array of Movies. Untouched by the sorting.
  * @param dst the destination array of Movies. Will contain the sorted data.
  * @param n the number of elements in src.

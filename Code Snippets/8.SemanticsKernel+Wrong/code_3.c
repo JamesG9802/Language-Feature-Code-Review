@@ -25,18 +25,18 @@ void radix_clone(src, dst, n) {
     }
 
     //   Iterate through each bit, starting from the least significant digit.
-    for(d = 0; d <= 31; d += 1) {
+    for(i = 0; i <= 31; i += 1) {
         count0 = 0;
         count1 = 0;
-        mask = 1 << d;
+        mask = 1 << i;
         //  Assigns elements to a bucket based on the digit (0 or 1).
-        for (i = 0; i < n; i += 1) {
-            if ((dst[i].views & mask) == 0) {
-                bucket0[count0] = dst[i];
+        for (d = 0; d < n; d += 1) {
+            if ((dst[d].views & mask) == 0) {
+                bucket0[count0] = dst[d];
                 count0 = count0 + 1;
             }
             else {
-                bucket1[count1] = dst[i];
+                bucket1[count1] = dst[d];
                 count1 = count1 + 1;
             }
         }
