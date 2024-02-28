@@ -15,7 +15,7 @@ typedef struct Movie {
  * @param dst the destination array of Movies. Will contain the sorted data.
  * @param n the number of elements in src.
 */
-void radix_clone(Movie src[], Movie dst[], int n) {
+void radix_clone(Movie src[], Movie dst[], unsigned int n) {
     Movie bucket0[100], bucket1[100];
     unsigned int count0 = 0u, count1 = 0u, mask = 0u, i = 0u, d = 0u;
 
