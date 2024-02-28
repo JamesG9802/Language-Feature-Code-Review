@@ -18,8 +18,7 @@ typedef struct Movie {
 */
 void radix_clone(Movie src[], Movie dst[], int n) {
     Movie bucket0[100], bucket1[100];
-    unsigned int count0, count1, mask;
-    int d, i;
+    unsigned int count0 = 0u, count1 = 0u, mask = 0u, i = 0u, d = 0u;
 
     //  Copy src to dst.
     for(i = 0; i < n; i += 1) {
