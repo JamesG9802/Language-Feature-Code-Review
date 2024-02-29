@@ -1,0 +1,7 @@
+# Question 2: **Incorrect** Implementation with **Generic Language Features**
+You are tasked to review the following code snippet. It is written in C and is intended to copy an array of Movies to a new destination in memory and sort them based on their views in ascending order using radix sort.
+## Implementation Details
+C is the language the code is written in. The code is ANSI C90 compliant.
+## Purpose of Question
+Similarly to question 1, this code snippet is the base template on which the incorrect variation of questions are modeled on. 
+The code has been verified to fail with our test cases.

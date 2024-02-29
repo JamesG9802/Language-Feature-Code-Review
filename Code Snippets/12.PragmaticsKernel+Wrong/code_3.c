@@ -19,11 +19,11 @@ void radix_clone(Movie src[], Movie dst[], unsigned int n1, unsigned int n2) {
     Movie bucket0[100], bucket1[100];
     unsigned int count0 = 0u, count1 = 0u, mask = 0u, i = 0u, d = 0u;
 
-    if(n1 > 100) {
-        panic("Can't sort more than 100 movies.");
+    panicif(n1 > 100) {
+        printf("Can't sort more than 100 movies.");
     }
-    if(n1 != n2) {
-        panic("src is not the same size as dst.");
+    panicif(n1 != n2) {
+        printf("src is not the same size as dst.");
     }
 
     //  Copy src to dst.

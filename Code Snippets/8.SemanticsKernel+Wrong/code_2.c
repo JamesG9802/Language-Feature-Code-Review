@@ -17,7 +17,7 @@ typedef struct Movie {
  * @param n the number of elements in src.
 */
 void radix_clone(src, dst, n) {
-    bucket0, bucket1, count0, count1, mask, i, d;
+    bucket0[100], bucket1[100], count0, count1, mask, i, d;
 
     //  Copy src to dst.
     for(i = 0; i < n; i += 1) {
