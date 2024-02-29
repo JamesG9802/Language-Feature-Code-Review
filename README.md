@@ -41,4 +41,5 @@ Swapping the loop variables will break the algorithm due to the i being reused l
         for (d = 0; d < n; d += 1)
 ```
 
-We chose these errors because they highlight the main bugs programmers face in their code: generic programming errors.
+We chose these errors because they highlight the main bugs programmers face in their code: generic programming errors; around 86% of bugs found from 850 projects on GitHub in 2017 were classified as programming errors[1].
+> [1] B. Ray, D. P. Posnett, P. Devanbu, and V. Filkov, ‘A Large-Scale Study of Programming Languages and Code Quality in GitHub’, *Communications of the ACM*, vol. 60, no. 10, pp. 91–100, 2017.
