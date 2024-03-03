@@ -31,7 +31,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Move into correct directory
-        run: cd survey
+        run: |
+          cd survey
+          ls -l
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
