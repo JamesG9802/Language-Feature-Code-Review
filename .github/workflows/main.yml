@@ -36,19 +36,18 @@ jobs:
           node-version: 18
           cache: 'npm'
           cache-dependency-path: "survey/package.json"
-      - name: Move into correct directory
-        run: cd survey
-      - name: Install dependencies
-        run: npm install
-      - name: Build
-        run: npm run build
+      - name: Install dependencies and Build
+        run: |
+          cd survey
+          npm install
+          npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
           # Upload dist repository
-          path: './dist'
+          path: './survey/dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
