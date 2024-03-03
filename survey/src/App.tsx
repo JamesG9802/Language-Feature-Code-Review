@@ -84,9 +84,34 @@ function App() {
           }
           {
             currentPage > 0 && currentPage < 7 &&
-            <QuestionSection sectionTitle="Code Review">
-              {get_random_question(currentPage)}
-            </QuestionSection>
+            <>
+              <Button id="partial_button" variant="contained" onClick={()=>{
+                if(confirm("Do you want to stop taking the survey now? Press OK to submit the data you provided so far.")) {
+                  setCurrentPage(7);
+                  //  Clean up data
+                  //  only send data from questions the user has fully filled out
+                  const prefix = number_to_prefix(random_questions[currentPage - 1]);
+                  const temp_data = JSON.parse(JSON.stringify(survey_data)) as any;
+                  console.log(survey_data)
+                  temp_data[prefix+"_readable"] = undefined;
+                  temp_data[prefix+"_simple"] = undefined;
+                  temp_data[prefix+"_maintainable"] = undefined;
+                  temp_data[prefix+"_works"] = undefined;
+                  temp_data[prefix+"_approve"] = undefined;
+                  set_survey_data(temp_data as survey_type);
+                  send_survey_data(survey_data, (data) => {
+                    console.log(data);
+                    setLoading(false);
+                  }, (error)=> {
+                    alert("Failed to submit survey data 😔");
+                    console.error(error);
+                  })
+                }
+              }}>Submit Partial Survey</Button>
+              <QuestionSection sectionTitle="Code Review">
+                {get_random_question(currentPage)}
+              </QuestionSection>
+            </>
           }
           {
             currentPage >= 7 &&

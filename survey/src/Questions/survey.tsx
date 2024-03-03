@@ -6,7 +6,7 @@ export type survey_scale = 1 | 2 | 3 | 4 | 5 | 6;
 export type survey_type = {
     "all_experience": number | -1,
     "pro_experience": number | -1,
-    "language_experience": string[],
+    "language_experience": string,
     "reviewer_experience": survey_scale | -1,
     "reviewee_experience": survey_scale | -1,
     "g-c_readable"?: survey_scale,
@@ -101,7 +101,7 @@ export type survey_type = {
 export let survey_data: survey_type = {
     "all_experience": -1,
     "pro_experience": -1,
-    "language_experience": [],
+    "language_experience": "",
     "reviewer_experience": -1,
     "reviewee_experience": -1,
 };

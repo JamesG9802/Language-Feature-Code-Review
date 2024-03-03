@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import React from "react";
-import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
+import { Checkbox, Chip, FormControl, InputLabel, ListItemText, MenuItem, OutlinedInput, Select } from "@mui/material";
 import { Question, } from "./question";
 import { survey_data } from "./survey";
 
@@ -60,30 +60,64 @@ const languages = [
     "Zig",
 ];
 
+function array_to_language_experience(language_array: string[]) {
+    language_array.sort();
+    let language_experience = "";
+    for(let i = 0; i < language_array.length; i++) {
+        language_experience += language_array[i]
+        if(i != language_array.length - 1)
+            language_experience += ","
+    }
+    survey_data.language_experience = language_experience;
+}
+
 /**
  * Question 3 - Languages Known
  */
 function Q3() {
     const [isValid, _setIsValid] = useState(true);
+    const [value, setValue] = React.useState<string[]>([]);
     
     return <Question title="Which programming, scripting, and markup languages have you done development work in over the past year?" isValid={isValid}>
-        <FormGroup>
-            {languages.map((language, index)=>{
-                const [checked, setChecked] = React.useState(false);
-                return <FormControlLabel key={index} label={language} control={
-                    <Checkbox 
-                        checked={checked}
-                        onChange={(event)=>{
-                            setChecked(event.target.checked);
-                            let language_index = survey_data.language_experience.indexOf(languages[index]);
-                            if(language_index > -1)
-                                survey_data.language_experience.splice(language_index, 1);
-                            if(event.target.checked)
-                                survey_data.language_experience.push(languages[index]);
-                        }} /> 
-                }></FormControlLabel>
-            })}
-        </FormGroup>
+        <FormControl sx={{ m: 1, width: 300 }}>
+                <InputLabel id="q3-select">Languages</InputLabel>
+                <Select
+                id="q3-select"
+                multiple
+                value={value}
+                onChange={(event)=>{
+                    let array = typeof event.target.value === 'string' ? event.target.value.split(',') : event.target.value
+                    setValue(array);
+                    array_to_language_experience(array);
+                }}
+                input={<OutlinedInput label="Languages" />}
+                renderValue={(selected) => selected.join(', ')}
+                >
+                {languages.map((language) => (
+                    <MenuItem key={language} value={language}>
+                    <Checkbox checked={value.indexOf(language) > -1} />
+                    <ListItemText primary={language} />
+                    </MenuItem>
+                ))
+                }
+                </Select>
+        </FormControl>
+        <div style={{display:"flex", flexDirection: "row", flexWrap: "wrap"}}>
+            {
+                value.map((language, index) => {
+                    return language != "" && 
+                    <Chip key={index} label={language} 
+                        onDelete={() =>{
+                            let index = value.indexOf(language);
+                            if(index > -1) {
+                                let copy = JSON.parse(JSON.stringify(value));
+                                copy.splice(index, 1);
+                                setValue(copy);
+                            }
+                    }}/>;
+                })
+            }
+        </div>
     </Question>
 }
 

@@ -4,3 +4,10 @@
   padding: 2rem;
   text-align: center;
 }
+
+#partial_button {
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
