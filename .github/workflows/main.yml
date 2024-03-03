@@ -36,8 +36,9 @@ jobs:
           node-version: 18
           cache: 'npm'
       - name: Install dependencies
-        run: cd survey
-        run: npm install
+        run: |
+          cd ./survey
+          npm install
       - name: Build
         run: npm run build
       - name: Setup Pages
