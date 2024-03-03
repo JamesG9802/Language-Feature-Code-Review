@@ -105,3 +105,7 @@ export let survey_data: survey_type = {
     "reviewer_experience": -1,
     "reviewee_experience": -1,
 };
+
+export function set_survey_data(data: survey_type) {
+    survey_data = JSON.parse(JSON.stringify(data));
+}

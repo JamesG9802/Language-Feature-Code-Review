@@ -1,6 +1,5 @@
 
 import { useState } from "react";
-import { RadioGroup } from "@mui/material";
 import { LikertScale, Question, } from "./question";
 import { survey_data, survey_scale } from "./survey";
 
@@ -9,7 +8,7 @@ import { survey_data, survey_scale } from "./survey";
  */
 function Q5() {
     let [answer, setAnswer] = useState<any>("");
-    const [isValid, setIsValid] = useState(true);
+    const [isValid, _setIsValid] = useState(true);
     
     return <Question title="I have experience having other people review my code." isValid={isValid}>
         <LikertScale id="q5" value={answer} onChange={(event)=>{

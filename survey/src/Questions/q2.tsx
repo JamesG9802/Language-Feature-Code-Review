@@ -17,7 +17,7 @@ function Q2() {
             id="q2" label="Years" variant="standard" 
             value={answer}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                let new_answer = event.target.value;
+                let new_answer = event.target.value.trim();
                 let new_isValid = new_answer != "" && !isNaN(Number(new_answer));
                 setAnswer(new_answer);
                 setIsValid(new_isValid);

@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import React from "react";
-import { Checkbox, FormControlLabel, FormGroup, TextField } from "@mui/material";
+import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
 import { Question, } from "./question";
 import { survey_data } from "./survey";
 
@@ -64,7 +64,7 @@ const languages = [
  * Question 3 - Languages Known
  */
 function Q3() {
-    const [isValid, setIsValid] = useState(true);
+    const [isValid, _setIsValid] = useState(true);
     
     return <Question title="Which programming, scripting, and markup languages have you done development work in over the past year?" isValid={isValid}>
         <FormGroup>
