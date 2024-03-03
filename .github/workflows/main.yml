@@ -35,19 +35,19 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
-      - name: Install dependencies
+          cache-dependency-path: "survey/package.json"
+      - name: Install dependencies and Build
         run: |
-          cd ./survey
+          cd survey
           npm install
-      - name: Build
-        run: npm run build
+          npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
           # Upload dist repository
-          path: './dist'
+          path: './survey/dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
