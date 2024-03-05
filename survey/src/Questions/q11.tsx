@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { LikertScale, Question, } from "./question";
 import { survey_data, survey_scale } from "./survey";
-import { Typography } from "@mui/material";
+import { Typography, useTheme } from "@mui/material";
 
 /**
  * Question 11 - SyntaxSugar+Wrong
@@ -15,6 +15,7 @@ function Q11() {
     const [approved, setApproved] = useState<any>("");
     const [isValid, _setIsValid] = useState(true);
     
+    const theme = useTheme();
     return <>
     <Typography style={{textAlign:"left"}}variant="body1" >
 {
@@ -40,7 +41,7 @@ for(j in A) {
 <Typography style={{textAlign:"left"}}variant="body1" >
 {`You can assume that this version of C can handle the implementation of this feature correctly without affecting the mechanisms behind other parts of the language.`}
 </Typography>
-    <pre style={{textAlign:"left"}}>
+    <pre style={{textAlign:"left", color: theme.palette.info.main, backgroundColor: theme.palette.info.contrastText}}>
 {`/**
  * A data type storing information about a movie.
 */

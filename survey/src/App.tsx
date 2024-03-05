@@ -71,7 +71,7 @@ function App() {
         <div className='root-container'>
           <Typography variant="h1">Survey</Typography>
           <Typography className="pad-t-b" variant="body1">
-            Survey conducted by NJIT students <a href="mailto:jcg64@njit.edu">James Gaiser</a> and <a href="mailto:dtd35@njit.edu">Dylan Dunsheath</a>.
+            Research on code reviews conducted by NJIT students <a href="mailto:jcg64@njit.edu">James Gaiser</a> and <a href="mailto:dtd35@njit.edu">Dylan Dunsheath</a>.
           </Typography>
           { currentPage == 0 &&
             <QuestionSection sectionTitle="About you">
@@ -108,7 +108,7 @@ function App() {
                   })
                 }
               }}>Submit Partial Survey</Button>
-              <QuestionSection sectionTitle="Code Review">
+              <QuestionSection sectionTitle={`Code Snippet ${currentPage}`}>
                 {get_random_question(currentPage)}
               </QuestionSection>
             </>

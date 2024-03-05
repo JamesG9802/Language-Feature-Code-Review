@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { LikertScale, Question, } from "./question";
 import { survey_data, survey_scale } from "./survey";
-import { Typography } from "@mui/material";
+import { Typography, useTheme } from "@mui/material";
 
 /**
  * Question 8 - SyntaxKernel+Correct
@@ -15,11 +15,12 @@ function Q8() {
     const [approved, setApproved] = useState<any>("");
     const [isValid, _setIsValid] = useState(true);
     
+    const theme = useTheme();
     return <>
     <Typography style={{textAlign:"left"}}variant="body1" >
     You are tasked to review the following code snippet. It is written in C and is intended to copy an array of Movies to a new destination in memory and sort them based on their views in ascending order using radix sort.
     </Typography>
-    <pre style={{textAlign:"left"}}>
+    <pre style={{textAlign:"left", color: theme.palette.info.main, backgroundColor: theme.palette.info.contrastText}}>
 {`/**
  * A data type storing information about a movie.
 */
