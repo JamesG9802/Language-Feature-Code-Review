@@ -20,7 +20,7 @@ function Q12() {
 {
 `You are tasked to review the following code snippet. It is written in a `}<strong>MODIFIED VERSION OF C</strong>{` and is intended to copy an array of Movies to a new destination in memory and sort them based on their views in ascending order using radix sort.
 
-This modified version of C that allows for dynamic typing. At run time, the types of variables can change given their usage in the code making explicitly writing variable types unnecessary unless a specific type is needed (like unsigned vs signed integers).
+This modified version of C allows for dynamic typing. At run time, the types of variables can change given their usage in the code making explicitly writing variable types unnecessary unless a specific type is needed (like unsigned vs signed integers).
 
 You can assume that this version of C can handle the implementation of this feature correctly without affecting the mechanisms behind other parts of the language. 
 `}

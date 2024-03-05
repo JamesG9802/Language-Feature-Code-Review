@@ -20,7 +20,7 @@ function Q18() {
 {
 `You are tasked to review the following code snippet. It is written in a `}<strong>MODIFIED VERSION OF C</strong>{` and is intended to copy an array of Movies to a new destination in memory and sort them based on their views in ascending order using radix sort.
 
-This modified version of C that allows for implicit type inference. At compile time, the types of variables can be inferred given their usage in the code making explicitly writing variable types unnecessary in most circumstances. Variable types cannot change; an int must always be an int.
+This modified version of C allows for implicit type inference. At compile time, the types of variables can be inferred given their usage in the code making explicitly writing variable types unnecessary in most circumstances. Variable types cannot change; an int must always be an int.
 
 Note that a nonstandard function is used, `}<pre style={{display: "inline"}}>{`clone(void* src).`}</pre> {`You can assume this function is called correctly and correctly returns a pointer to a clone of `}<pre style={{display: "inline"}}>{`src`}</pre>{`.
 

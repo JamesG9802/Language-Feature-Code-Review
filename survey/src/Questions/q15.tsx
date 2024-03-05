@@ -20,7 +20,7 @@ function Q15() {
 {
 `You are tasked to review the following code snippet. It is written in a `}<strong>MODIFIED VERSION OF C</strong>{` and is intended to copy an array of Movies to a new destination in memory and sort them based on their views in ascending order using radix sort.
 
-This modified version of C that allows for overloading struct operators. Whenever an operator is used with a struct, an overloaded operator is called instead.
+This modified version of C allows for overloading struct operators. Whenever an operator is used with a struct, an overloaded operator is called instead.
 
 So`}</Typography>
 <pre>{`typedef struct Vector2 Vector2;

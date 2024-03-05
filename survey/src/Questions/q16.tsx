@@ -20,7 +20,7 @@ function Q16() {
 {
 `You are tasked to review the following code snippet. It is written in a `}<strong>MODIFIED VERSION OF C</strong>{` and is intended to copy an array of Movies to a new destination in memory and sort them based on their views in ascending order using radix sort.
 
-This modified version of C that allows for exception handling and stack tracing through the panicif keyword. The following example shows how panicif works:
+This modified version of C allows for exception handling and stack tracing through the panicif keyword. The following example shows how panicif works:
 `}
 <pre>{`void example_function(int* data) {
     int* int_array = malloc(sizeof(int)*10);
